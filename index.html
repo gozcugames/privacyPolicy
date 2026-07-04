@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | GozcuGames</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-0:#0b0e14;
+    --bg-1:#11151f;
+    --card:#141926;
+    --line:rgba(148,163,184,.14);
+    --amber:#fbc376;
+    --violet:#9677b6;
+    --text:#e8ecf3;
+    --muted:#8b93a7;
+    --radius:16px;
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(251,195,118,.14), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(150,119,182,.12), transparent 55%),
+      var(--bg-0);
+    color:var(--text);
+    font-family:'Inter', -apple-system, sans-serif;
+    position:relative;
+  }
+
+  html[dir="rtl"] body{ font-family:'Tajawal','Inter',sans-serif; }
+
+  .radar{
+    position:fixed;
+    top:-300px; right:-300px;
+    width:900px; height:900px;
+    pointer-events:none;
+    opacity:.4;
+    z-index:0;
+  }
+  .radar-ring{ position:absolute; inset:0; border:1px solid rgba(251,195,118,.06); border-radius:50%; }
+  .radar-ring:nth-child(2){ inset:90px; border-color:rgba(251,195,118,.05); }
+  .radar-ring:nth-child(3){ inset:210px; border-color:rgba(150,119,182,.05); }
+  .radar-sweep{
+    position:absolute; inset:0; border-radius:50%;
+    background:conic-gradient(from 0deg, rgba(251,195,118,.18), transparent 28%, transparent 100%);
+    animation:sweep 9s linear infinite;
+  }
+  @keyframes sweep{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion:reduce){ .radar-sweep{ animation:none; } }
+
+  header{
+    position:sticky; top:0; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 28px;
+    background:rgba(11,14,20,.75);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Rajdhani', sans-serif;
+    font-weight:700;
+    font-size:1.25rem;
+    letter-spacing:.02em;
+  }
+  .brand svg{ width:26px; height:26px; flex:none; }
+  .brand .iris{ transform-origin:center; animation:blink 5s ease-in-out infinite; }
+  @keyframes blink{
+    0%, 92%, 100% { transform:scaleY(1); }
+    95% { transform:scaleY(0.08); }
+  }
+  @media (prefers-reduced-motion:reduce){ .brand .iris{ animation:none; } }
+  .brand span{
+    background:linear-gradient(135deg, #fff, var(--violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .lang-switch{
+    display:flex; gap:4px;
+    background:var(--bg-1);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:4px;
+  }
+  .lang-switch button{
+    appearance:none; border:none; background:transparent;
+    color:var(--muted);
+    font-family:'Rajdhani', sans-serif;
+    font-weight:600; font-size:.8rem; letter-spacing:.04em;
+    padding:8px 14px; border-radius:999px; cursor:pointer;
+    transition:background .2s ease, color .2s ease;
+  }
+  .lang-switch button.active{
+    background:linear-gradient(135deg, var(--amber), var(--violet));
+    color:#0b0e14;
+  }
+  .lang-switch button:not(.active):hover{ color:var(--text); }
+  .lang-switch button:focus-visible,
+  .send-btn:focus-visible{ outline:2px solid var(--violet); outline-offset:2px; }
+
+  main{
+    position:relative; z-index:10;
+    max-width:760px;
+    margin:0 auto;
+    padding:48px 24px 90px;
+  }
+
+  .doc-title{
+    font-family:'Rajdhani', sans-serif;
+    font-weight:700;
+    font-size:2.1rem;
+    letter-spacing:.01em;
+    margin:0 0 6px;
+  }
+  .doc-sub{
+    color:var(--muted);
+    font-size:.9rem;
+    margin:0 0 36px;
+  }
+
+  .lang-block{ display:none; }
+  .lang-block.active{ display:block; }
+
+  section.policy-section{
+    background:linear-gradient(180deg, var(--card), var(--bg-1));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:24px 26px;
+    margin-bottom:16px;
+  }
+
+  section.policy-section h2{
+    font-family:'Rajdhani', sans-serif;
+    font-weight:700;
+    font-size:1.15rem;
+    letter-spacing:.02em;
+    margin:0 0 10px;
+    color:var(--amber);
+  }
+  section.policy-section p{
+    margin:0 0 12px;
+    color:var(--text);
+    line-height:1.65;
+    font-size:.95rem;
+  }
+  section.policy-section p:last-child{ margin-bottom:0; }
+  section.policy-section ul{
+    margin:0 0 12px;
+    padding-inline-start:20px;
+    color:var(--text);
+    line-height:1.65;
+    font-size:.95rem;
+  }
+  section.policy-section li{ margin-bottom:6px; }
+  section.policy-section a{ color:var(--violet); }
+
+  .contact-line{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:4px;
+    font-weight:600;
+    color:var(--amber);
+  }
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:.8rem;
+    padding:0 24px 40px;
+  }
+
+  @media (max-width:560px){
+    header{ padding:14px 16px; }
+    .brand span.label{ display:none; }
+    main{ padding:32px 16px 70px; }
+    .doc-title{ font-size:1.6rem; }
+    section.policy-section{ padding:20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="radar" aria-hidden="true">
+  <div class="radar-ring"></div>
+  <div class="radar-ring"></div>
+  <div class="radar-ring"></div>
+  <div class="radar-sweep"></div>
+</div>
+
+<header>
+  <div class="brand">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 24C2 24 11 10 24 10C37 10 46 24 46 24C46 24 37 38 24 38C11 38 2 24 2 24Z" stroke="#fbc376" stroke-width="2.5" stroke-linejoin="round"/>
+      <g class="iris">
+        <circle cx="24" cy="24" r="8" fill="url(#irisGrad)"/>
+        <circle cx="24" cy="24" r="3" fill="#0b0e14"/>
+      </g>
+      <defs>
+        <linearGradient id="irisGrad" x1="16" y1="16" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#fbc376"/>
+          <stop offset="1" stop-color="#9677b6"/>
+        </linearGradient>
+      </defs>
+    </svg>
+    <span class="label">GozcuGames</span>
+  </div>
+
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="tr">TR</button>
+    <button type="button" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ENGLISH -->
+  <div class="lang-block active" id="block-en">
+    <h1 class="doc-title">Privacy Policy</h1>
+    <p class="doc-sub">GozcuGames &middot; Last updated: July 4, 2026</p>
+
+    <section class="policy-section">
+      <h2>Introduction</h2>
+      <p>GozcuGames ("we", "us", "our") develops and publishes mobile and PC games. This Privacy Policy explains what information we collect when you play our games, visit our website, or contact us, how we use it, and the choices you have.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Information We Collect</h2>
+      <ul>
+        <li><strong>Contact information</strong> you provide voluntarily, such as your name and message when you use our contact form.</li>
+        <li><strong>Device and technical data</strong>, including device model, operating system, language, and a unique device or advertising identifier.</li>
+        <li><strong>Gameplay data</strong>, such as levels completed, in-game progress, session length, and crash or performance reports.</li>
+        <li><strong>Purchase information</strong> processed by the app store or payment provider when you make an in-app purchase (we do not receive or store full payment card details).</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>How We Use Information</h2>
+      <ul>
+        <li>To operate, maintain, and improve our games.</li>
+        <li>To respond to messages sent through our contact form.</li>
+        <li>To diagnose bugs and crashes and improve performance.</li>
+        <li>To measure engagement and understand how our games are used, in aggregate.</li>
+        <li>To show or measure advertising, where applicable, through third-party ad networks.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Third-Party Services</h2>
+      <p>We may use third-party services such as analytics providers, crash-reporting tools, advertising networks, and app store platforms (for example Google Play or the App Store) to help operate our games. These providers may collect information directly according to their own privacy policies. We encourage you to review the policies of the platforms you use to access our games.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Sharing</h2>
+      <p>We do not sell your personal information. We may share limited information with service providers who help us run our games (such as analytics or hosting providers), or when required by law.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Children's Privacy</h2>
+      <p>Our games are intended for a general audience. If a game is directed at children, we limit data collection to what is necessary for the game to function and do not knowingly collect more personal information from children than applicable law allows.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Data Retention</h2>
+      <p>We keep information only for as long as needed for the purposes described in this policy, or as required by law, after which it is deleted or anonymized.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Your Rights</h2>
+      <p>Depending on where you live, you may have the right to access, correct, or delete your personal information, or to object to certain uses. To exercise these rights, contact us using the details below.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Security</h2>
+      <p>We use reasonable technical and organizational measures to protect information from loss, misuse, or unauthorized access. No method of transmission or storage is completely secure.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Changes take effect when posted on this page, with the "last updated" date revised accordingly.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact Us</h2>
+      <p>If you have questions about this Privacy Policy or how we handle your information, reach out through our contact form.</p>
+      <span class="contact-line">✉ contact@gozcugames.com</span>
+    </section>
+  </div>
+
+  <!-- TURKISH -->
+  <div class="lang-block" id="block-tr">
+    <h1 class="doc-title">Gizlilik Politikası</h1>
+    <p class="doc-sub">GozcuGames &middot; Son güncelleme: 4 Temmuz 2026</p>
+
+    <section class="policy-section">
+      <h2>Giriş</h2>
+      <p>GozcuGames ("biz", "bize", "bizim") mobil ve PC oyunları geliştiren ve yayınlayan bir stüdyodur. Bu Gizlilik Politikası, oyunlarımızı oynadığınızda, web sitemizi ziyaret ettiğinizde veya bizimle iletişime geçtiğinizde hangi bilgileri topladığımızı, bunları nasıl kullandığımızı ve sahip olduğunuz seçenekleri açıklar.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Topladığımız Bilgiler</h2>
+      <ul>
+        <li><strong>İletişim bilgileri:</strong> İletişim formumuzu kullandığınızda gönüllü olarak paylaştığınız adınız ve mesajınız gibi bilgiler.</li>
+        <li><strong>Cihaz ve teknik veriler:</strong> Cihaz modeli, işletim sistemi, dil ve benzersiz cihaz veya reklam kimliği.</li>
+        <li><strong>Oyun içi veriler:</strong> Tamamlanan seviyeler, oyun içi ilerleme, oturum süresi, çökme ve performans raporları.</li>
+        <li><strong>Satın alma bilgileri:</strong> Uygulama içi satın alma yaptığınızda uygulama mağazası veya ödeme sağlayıcısı tarafından işlenen bilgiler (tam ödeme kartı bilgilerini almıyor veya saklamıyoruz).</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Bilgileri Nasıl Kullanıyoruz</h2>
+      <ul>
+        <li>Oyunlarımızı çalıştırmak, sürdürmek ve geliştirmek için.</li>
+        <li>İletişim formu aracılığıyla gönderilen mesajlara yanıt vermek için.</li>
+        <li>Hataları ve çökmeleri teşhis etmek, performansı iyileştirmek için.</li>
+        <li>Etkileşimi ölçmek ve oyunlarımızın toplu olarak nasıl kullanıldığını anlamak için.</li>
+        <li>Uygulanabilir durumlarda, üçüncü taraf reklam ağları aracılığıyla reklam göstermek veya ölçmek için.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Üçüncü Taraf Hizmetleri</h2>
+      <p>Oyunlarımızı işletmemize yardımcı olması için analiz sağlayıcıları, çökme raporlama araçları, reklam ağları ve uygulama mağazası platformları (örneğin Google Play veya App Store) gibi üçüncü taraf hizmetlerini kullanabiliriz. Bu sağlayıcılar, kendi gizlilik politikalarına göre doğrudan bilgi toplayabilir. Oyunlarımıza erişmek için kullandığınız platformların politikalarını incelemenizi öneririz.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Veri Paylaşımı</h2>
+      <p>Kişisel bilgilerinizi satmıyoruz. Oyunlarımızı çalıştırmamıza yardımcı olan hizmet sağlayıcılarla (analiz veya barındırma sağlayıcıları gibi) sınırlı bilgi paylaşabilir veya yasalar gerektirdiğinde bilgi paylaşabiliriz.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Çocukların Gizliliği</h2>
+      <p>Oyunlarımız genel bir kitleye yöneliktir. Bir oyun çocuklara yönelikse, veri toplamayı oyunun çalışması için gerekli olanla sınırlandırırız ve yürürlükteki yasaların izin verdiğinden daha fazla kişisel bilgiyi çocuklardan bilerek toplamayız.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Veri Saklama</h2>
+      <p>Bilgileri yalnızca bu politikada açıklanan amaçlar için gerekli olduğu sürece veya yasaların gerektirdiği süre boyunca saklarız; bu sürenin ardından silinir veya anonimleştirilir.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Haklarınız</h2>
+      <p>Yaşadığınız yere bağlı olarak, kişisel bilgilerinize erişme, düzeltme veya silme ya da belirli kullanımlara itiraz etme hakkına sahip olabilirsiniz. Bu haklarınızı kullanmak için aşağıdaki bilgilerle bizimle iletişime geçin.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Güvenlik</h2>
+      <p>Bilgileri kayıp, kötüye kullanım veya yetkisiz erişimden korumak için makul teknik ve organizasyonel önlemler alıyoruz. Hiçbir iletim veya saklama yöntemi tamamen güvenli değildir.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Bu Politikadaki Değişiklikler</h2>
+      <p>Bu Gizlilik Politikasını zaman zaman güncelleyebiliriz. Değişiklikler bu sayfada yayınlandığında yürürlüğe girer ve "son güncelleme" tarihi buna göre revize edilir.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Bize Ulaşın</h2>
+      <p>Bu Gizlilik Politikası veya bilgilerinizi nasıl işlediğimiz hakkında sorularınız varsa, iletişim formumuz aracılığıyla bize ulaşabilirsiniz.</p>
+      <span class="contact-line">✉ contact@gozcugames.com</span>
+    </section>
+  </div>
+
+  <!-- ARABIC -->
+  <div class="lang-block" id="block-ar">
+    <h1 class="doc-title">سياسة الخصوصية</h1>
+    <p class="doc-sub">GozcuGames &middot; آخر تحديث: 4 يوليو 2026</p>
+
+    <section class="policy-section">
+      <h2>مقدمة</h2>
+      <p>تقوم GozcuGames ("نحن") بتطوير ونشر ألعاب للهواتف المحمولة وأجهزة الكمبيوتر. توضح سياسة الخصوصية هذه المعلومات التي نجمعها عند لعب ألعابنا أو زيارة موقعنا الإلكتروني أو التواصل معنا، وكيفية استخدامها، والخيارات المتاحة لك.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>المعلومات التي نجمعها</h2>
+      <ul>
+        <li><strong>معلومات التواصل</strong> التي تقدمها طوعًا، مثل اسمك ورسالتك عند استخدام نموذج التواصل الخاص بنا.</li>
+        <li><strong>بيانات الجهاز والبيانات التقنية</strong>، بما في ذلك طراز الجهاز ونظام التشغيل واللغة ومعرّف الجهاز أو الإعلانات الفريد.</li>
+        <li><strong>بيانات اللعب</strong>، مثل المراحل المكتملة والتقدم داخل اللعبة ومدة الجلسة وتقارير الأعطال أو الأداء.</li>
+        <li><strong>معلومات الشراء</strong> التي يعالجها متجر التطبيقات أو مزود الدفع عند إجراء عملية شراء داخل التطبيق (نحن لا نتلقى أو نخزّن بيانات بطاقة الدفع الكاملة).</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>كيف نستخدم المعلومات</h2>
+      <ul>
+        <li>لتشغيل ألعابنا وصيانتها وتحسينها.</li>
+        <li>للرد على الرسائل المرسلة عبر نموذج التواصل.</li>
+        <li>لتشخيص الأعطال والأخطاء وتحسين الأداء.</li>
+        <li>لقياس التفاعل وفهم كيفية استخدام ألعابنا بشكل إجمالي.</li>
+        <li>لعرض أو قياس الإعلانات، عند الاقتضاء، عبر شبكات إعلانية تابعة لجهات خارجية.</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>خدمات الجهات الخارجية</h2>
+      <p>قد نستخدم خدمات جهات خارجية مثل مزودي التحليلات وأدوات الإبلاغ عن الأعطال وشبكات الإعلانات ومنصات متاجر التطبيقات (مثل Google Play أو App Store) للمساعدة في تشغيل ألعابنا. قد تجمع هذه الجهات معلومات مباشرة وفقًا لسياسات الخصوصية الخاصة بها. ننصحك بمراجعة سياسات المنصات التي تستخدمها للوصول إلى ألعابنا.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>مشاركة البيانات</h2>
+      <p>نحن لا نبيع معلوماتك الشخصية. قد نشارك معلومات محدودة مع مزودي الخدمات الذين يساعدوننا في تشغيل ألعابنا (مثل مزودي التحليلات أو الاستضافة)، أو عند الاقتضاء بموجب القانون.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>خصوصية الأطفال</h2>
+      <p>ألعابنا موجهة لجمهور عام. إذا كانت إحدى الألعاب موجهة للأطفال، فإننا نحصر جمع البيانات في الحد الأدنى اللازم لعمل اللعبة، ولا نقوم عن قصد بجمع معلومات شخصية من الأطفال تتجاوز ما يسمح به القانون المعمول به.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>الاحتفاظ بالبيانات</h2>
+      <p>نحتفظ بالمعلومات فقط للمدة اللازمة للأغراض الموضحة في هذه السياسة، أو وفقًا لما يقتضيه القانون، وبعد ذلك يتم حذفها أو إخفاء هويتها.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>حقوقك</h2>
+      <p>اعتمادًا على مكان إقامتك، قد يكون لديك الحق في الوصول إلى معلوماتك الشخصية أو تصحيحها أو حذفها، أو الاعتراض على استخدامات معينة. لممارسة هذه الحقوق، تواصل معنا عبر البيانات أدناه.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>الأمان</h2>
+      <p>نستخدم إجراءات تقنية وتنظيمية معقولة لحماية المعلومات من الفقدان أو سوء الاستخدام أو الوصول غير المصرح به. لا توجد طريقة نقل أو تخزين آمنة بشكل كامل.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>التغييرات على هذه السياسة</h2>
+      <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. تصبح التغييرات سارية عند نشرها على هذه الصفحة، مع تحديث تاريخ "آخر تحديث" وفقًا لذلك.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>تواصل معنا</h2>
+      <p>إذا كانت لديك أسئلة حول سياسة الخصوصية هذه أو كيفية تعاملنا مع معلوماتك، يمكنك التواصل معنا عبر نموذج التواصل.</p>
+      <span class="contact-line">✉ gozcugamesofficial@gmail.com</span>
+    </section>
+  </div>
+
+</main>
+
+<footer>GozcuGames — <span id="footer-text">All rights reserved.</span></footer>
+
+<script>
+  const footerText = { en: "All rights reserved.", tr: "Tüm hakları saklıdır.", ar: "جميع الحقوق محفوظة." };
+  const dirMap = { en: 'ltr', tr: 'ltr', ar: 'rtl' };
+
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.documentElement.dir = dirMap[lang];
+
+    document.querySelectorAll('.lang-block').forEach(el => el.classList.remove('active'));
+    document.getElementById('block-' + lang).classList.add('active');
+
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    document.getElementById('footer-text').textContent = footerText[lang];
+  }
+
+  document.querySelectorAll('.lang-switch button').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+</script>
+
+</body>
+</html>
